@@ -16,12 +16,18 @@ template = PromptTemplate(
     partial_variables={'format_instruction': parser.get_format_instructions()}
 )
 
-prompt = template.format()
+# We can use this,
+# prompt = template.format()
+# result = llm.invoke(prompt)
+# # print(result)
+# final_result = parser.parse(result.content)
 
-result = llm.invoke(prompt)
-# print(result)
 
-final_result = parser.parse(result.content)
-print(final_result)
-print('\n', final_result['name'])
-print(type(final_result))
+# We can also use it by chaining each other.
+chain = template | llm | parser
+result = chain.invoke({})
+# we are sending blank dict. because it needs input variable value of PromptTemplate
+
+print(result)
+print('\n', result['name'])
+print(type(result))
