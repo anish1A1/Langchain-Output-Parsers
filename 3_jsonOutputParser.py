@@ -30,6 +30,3 @@ result = model.invoke(prompt)
 # print(result)
 
 final_result = parser.parse(result.content)
-print(final_result)
-print('\n', final_result['name'])
-print(type(final_result))
