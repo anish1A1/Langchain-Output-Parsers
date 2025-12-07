@@ -29,6 +29,9 @@ template = PromptTemplate(
     partial_variables={'format_instruction': parser.get_format_instructions()}
 )
 
+# prompt = template.invoke({'topic':'pokemon'})
+# print(prompt)
+
 chain = template | model | parser
 
 output = chain.invoke({'topic':'pokemon'})
