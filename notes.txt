@@ -2,3 +2,10 @@ JsonOutputParser -->
 When using JsonOutputParser, there is no gurantee that the output schema will be same as specified. 
 The key of json may be named differently. for e.g we want it to specify key as Fact 1, fact 2 for a topic Cricket, It may provide key as Super bowl, Football league as its key
 
+
+
+
+StrOutputParser  ---> converts to string
+JsonOutputParser ---> converts to string but no schema validation
+StructuredOutputParser ---> Converts to Json but no data validation
+PydanticOutputParser ---> Has Json + data Validation  
